@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intune Training Portal — Contractor Certification</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #0F6E56;
+    --green-dark: #085041;
+    --green-deep: #04342C;
+    --green-light: #E1F5EE;
+    --green-mid: #5DCAA5;
+    --green-pale: #9FE1CB;
+    --teal-text: #085041;
+    --blue-light: #E6F1FB;
+    --blue-text: #0C447C;
+    --blue-border: #85B7EB;
+    --pink-light: #FBEAF0;
+    --pink-text: #72243E;
+    --pink-border: #ED93B1;
+    --purple-light: #EEEDFE;
+    --purple-text: #3C3489;
+    --purple-border: #AFA9EC;
+    --amber-light: #FAEEDA;
+    --amber-text: #633806;
+    --amber-border: #FAC775;
+    --sage-light: #EAF3DE;
+    --sage-text: #27500A;
+    --sage-border: #97C459;
+    --red-light: #FCEBEB;
+    --red-text: #501313;
+    --red-border: #F09595;
+    --bg: #F5F4F0;
+    --surface: #FFFFFF;
+    --surface2: #F8F7F4;
+    --border: rgba(0,0,0,0.08);
+    --border-med: rgba(0,0,0,0.14);
+    --text: #1A1A18;
+    --text2: #6B6A65;
+    --text3: #9B9A96;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-pill: 100px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--green-deep);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    background: var(--green);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .brand-mark svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+  }
+  .brand-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.02em;
+  }
+  .brand-sep {
+    width: 1px;
+    height: 16px;
+    background: rgba(255,255,255,0.2);
+  }
+  .brand-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .progress-mini {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+  }
+  .progress-mini-track {
+    width: 80px;
+    height: 3px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 100px;
+  }
+  .progress-mini-fill {
+    height: 3px;
+    background: var(--green-pale);
+    border-radius: 100px;
+    width: 0%;
+    transition: width 0.6s ease;
+  }
+  .cert-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius-pill);
+    padding: 5px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--green);
+    padding: 56px 32px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    right: 120px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius-pill);
+    padding: 4px 12px 4px 8px;
+    margin-bottom: 20px;
+  }
+  .hero-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green-pale);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+  .hero-eyebrow span {
+    font-size: 11px;
+    color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+  .hero h1 span {
+    color: var(--green-pale);
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.68);
+    max-width: 520px;
+    line-height: 1.65;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 0;
+    max-width: 540px;
+  }
+  .hstat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+  }
+  .hstat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+  .hstat-lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .hero-progress-bar {
+    margin-top: 36px;
+    background: rgba(0,0,0,0.2);
+    padding: 16px 32px;
+    margin-left: -32px;
+    margin-right: -32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-prog-track {
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 100px;
+    max-width: 300px;
+  }
+  .hero-prog-fill {
+    height: 4px;
+    background: var(--green-pale);
+    border-radius: 100px;
+    width: 0%;
+    transition: width 0.7s ease;
+  }
+  .hero-prog-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+  }
+
+  /* ── TABS ── */
+  .tabs-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky;
+    top: 56px;
+    z-index: 90;
+  }
+  .tabs-bar::-webkit-scrollbar { display: none; }
+  .tabs-inner {
+    display: flex;
+    padding: 0 24px;
+    max-width: 960px;
+    margin: 0 auto;
+    gap: 0;
+  }
+  .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text2);
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active {
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
+  .tab-icon { font-size: 15px; }
+  .tab-count {
+    font-size: 10px;
+    background: var(--bg);
+    color: var(--text2);
+    padding: 1px 6px;
+    border-radius: var(--radius-pill);
+    font-weight: 500;
+  }
+  .tab-btn.active .tab-count {
+    background: var(--green-light);
+    color: var(--teal-text);
+  }
+  .tab-done {
+    width: 14px;
+    height: 14px;
+    background: var(--green);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: white;
+    line-height: 1;
+  }
+  .tab-done.show { display: flex; }
+
+  /* ── LAYOUT ── */
+  .page-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+  }
+
+  /* panels */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* ── OVERVIEW ── */
+  .ov-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .ov-steps {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+  .ov-steps-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+  .step-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .step-item:last-child { margin-bottom: 0; }
+  .step-num-circle {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    background: var(--green-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teal-text);
+    margin-top: 1px;
+  }
+  .step-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  .step-text span {
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+  .ov-cert-card {
+    background: var(--green-deep);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .ov-cert-badge {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  .ov-cert-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .ov-cert-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text3);
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .module-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.12s;
+  }
+  .module-tile:hover {
+    border-color: var(--border-med);
+    transform: translateY(-1px);
+  }
+  .mt-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .mt-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .mt-info {}
+  .mt-title {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .mt-sub {
+    font-size: 11px;
+    color: var(--text2);
+    margin-top: 2px;
+  }
+  .mt-prog-track {
+    height: 3px;
+    background: var(--bg);
+    border-radius: 100px;
+    overflow: hidden;
+  }
+  .mt-prog-fill {
+    height: 3px;
+    background: var(--green);
+    border-radius: 100px;
+    width: 0%;
+    transition: width 0.6s ease;
+  }
+
+  .start-course-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -0.01em;
+    transition: background 0.15s;
+  }
+  .start-course-btn:hover { background: var(--green-dark); }
+
+  /* ── MODULE PANEL ── */
+  .mod-header-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .mhc-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .mhc-info {}
+  .mhc-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .mhc-desc {
+    font-size: 13px;
+    color: var(--text2);
+    line-height: 1.65;
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+  .mhc-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-weight: 500;
+  }
+
+  /* Videos */
+  .video-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .video-card:hover { border-color: var(--green-mid); }
+  .yt-pill {
+    width: 46px;
+    height: 46px;
+    background: #FF0000;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .yt-arrow {
+    width: 0; height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 14px solid white;
+    margin-left: 3px;
+  }
+  .vc-info { flex: 1; min-width: 0; }
+  .vc-title { font-size: 13px; font-weight: 500; margin-bottom: 3px; line-height: 1.35; }
+  .vc-meta { font-size: 11px; color: var(--text2); }
+  .watch-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 13px;
+    border-radius: var(--radius-pill);
+    background: var(--green-light);
+    color: var(--teal-text);
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* Lessons */
+  .lessons-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .lesson-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .lesson-row:last-child { border-bottom: none; }
+  .l-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .l-body {}
+  .l-title { font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+  .l-desc { font-size: 12px; color: var(--text2); line-height: 1.55; }
+  .l-tags { display: flex; gap: 5px; margin-top: 6px; flex-wrap: wrap; }
+  .l-tag {
+    font-size: 10px; padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border);
+    color: var(--text3);
+    font-weight: 500;
+  }
+  .l-tag.intune { background: var(--green-light); border-color: var(--green-mid); color: var(--teal-text); }
+  .l-tag.safety { background: var(--red-light); border-color: var(--red-border); color: var(--red-text); }
+  .l-tag.security { background: var(--red-light); border-color: var(--red-border); color: var(--red-text); }
+
+  /* Quiz */
+  .quiz-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .quiz-wrapper.final { border-color: var(--green-mid); }
+  .quiz-top {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .quiz-wrapper.final .quiz-top {
+    background: var(--green-light);
+  }
+  .qt-left { display: flex; align-items: center; gap: 10px; }
+  .qt-icon { font-size: 18px; }
+  .qt-title { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+  .quiz-wrapper.final .qt-title { color: var(--teal-text); }
+  .pass-req {
+    font-size: 11px; font-weight: 600; padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--green-light);
+    color: var(--teal-text);
+  }
+  .quiz-body { padding: 20px; }
+  .q-block { margin-bottom: 20px; }
+  .q-block:last-child { margin-bottom: 0; }
+  .q-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text3); margin-bottom: 5px; }
+  .q-text { font-size: 14px; font-weight: 500; margin-bottom: 10px; line-height: 1.5; color: var(--text); }
+  .opts { display: flex; flex-direction: column; gap: 6px; }
+  .opt {
+    text-align: left;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    cursor: pointer;
+    background: var(--surface);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.45;
+    transition: border-color 0.1s, background 0.1s;
+  }
+  .opt:hover:not(:disabled) { background: var(--bg); border-color: var(--border-med); }
+  .opt.correct { background: var(--green-light); border-color: var(--green-mid); color: var(--teal-text); }
+  .opt.wrong { background: var(--red-light); border-color: var(--red-border); color: var(--red-text); }
+  .opt:disabled { cursor: default; }
+  .q-fb {
+    font-size: 12px;
+    margin-top: 6px;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    display: none;
+  }
+  .q-fb.ok { display: block; background: var(--green-light); color: var(--teal-text); }
+  .q-fb.no { display: block; background: var(--red-light); color: var(--red-text); }
+  .quiz-footer {
+    padding: 0 20px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn-submit {
+    padding: 10px 24px;
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Syne', sans-serif;
+    transition: background 0.15s;
+  }
+  .btn-submit:hover { background: var(--green-dark); }
+  .btn-submit:disabled { opacity: 0.45; cursor: default; }
+  .btn-reset {
+    padding: 9px 16px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--text2);
+    font-family: 'Inter', sans-serif;
+    display: none;
+  }
+  .score-display {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 14px;
+    border-radius: var(--radius-sm);
+    display: none;
+  }
+  .score-display.pass { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); color: var(--teal-text); }
+  .score-display.fail { display: inline-flex; align-items: center; gap: 6px; background: var(--red-light); color: var(--red-text); }
+
+  /* Next nav */
+  .mod-nav-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+  .btn-next {
+    padding: 9px 20px;
+    background: transparent;
+    border: 1px solid var(--green-mid);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--green);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.15s;
+  }
+  .btn-next:hover { background: var(--green-light); }
+
+  /* Cert unlock */
+  .cert-unlock {
+    display: none;
+    background: var(--green-deep);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-top: 20px;
+    text-align: center;
+    animation: fadeUp 0.5s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .cert-unlock-badge { font-size: 52px; margin-bottom: 14px; }
+  .cert-unlock-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .cert-unlock-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .topbar { padding: 0 16px; }
+    .hero { padding: 36px 16px 0; }
+    .hero-progress-bar { padding: 12px 16px; margin-left: -16px; margin-right: -16px; }
+    .hero h1 { font-size: 28px; }
+    .hero-stats { grid-template-columns: repeat(2,1fr); }
+    .tabs-inner { padding: 0 8px; }
+    .tab-btn { padding: 12px 12px; font-size: 12px; }
+    .page-content { padding: 20px 16px 40px; }
+    .ov-intro { grid-template-columns: 1fr; }
+    .modules-grid { grid-template-columns: 1fr; }
+    .mod-header-card { flex-direction: column; gap: 12px; }
+    .mhc-icon { width: 44px; height: 44px; font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<nav class="topbar">
+  <div class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 18 18"><path d="M9 1.5L15.5 5.25V12.75L9 16.5L2.5 12.75V5.25L9 1.5Z"/></svg>
+    </div>
+    <span class="brand-name">Intune</span>
+    <div class="brand-sep"></div>
+    <span class="brand-sub">Training Portal</span>
+  </div>
+  <div class="topbar-right">
+    <div class="progress-mini">
+      <span id="topbar-prog-label">0 / 6</span>
+      <div class="progress-mini-track"><div class="progress-mini-fill" id="topbar-prog"></div></div>
+    </div>
+    <div class="cert-chip">Contractor Certification</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="hero-dot"></div><span>Pre-certification program</span></div>
+    <h1>Installation Partner<br><span>Training Program</span></h1>
+    <p class="hero-sub">Complete all 6 modules and pass every quiz before joining as an Intune installation partner. Each module includes curated video resources and an interactive quiz.</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num">6</div><div class="hstat-lbl">Modules</div></div>
+      <div class="hstat"><div class="hstat-num">32</div><div class="hstat-lbl">Lessons</div></div>
+      <div class="hstat"><div class="hstat-num">~18h</div><div class="hstat-lbl">Duration</div></div>
+      <div class="hstat"><div class="hstat-num">6</div><div class="hstat-lbl">Quizzes</div></div>
+    </div>
+  </div>
+  <div class="hero-progress-bar">
+    <div class="hero-prog-track"><div class="hero-prog-fill" id="hero-prog"></div></div>
+    <span class="hero-prog-label" id="hero-prog-label">0 of 6 modules completed</span>
+  </div>
+</header>
+
+<!-- TABS -->
+<div class="tabs-bar">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="showTab('ov')"><span class="tab-icon">☰</span> Overview</button>
+    <button class="tab-btn" id="tab-m1" onclick="showTab('m1')"><span class="tab-icon">⚡</span> Electrical <span class="tab-count">4</span><span class="tab-done" id="td-m1">✓</span></button>
+    <button class="tab-btn" id="tab-m2" onclick="showTab('m2')"><span class="tab-icon">🔧</span> Cabling <span class="tab-count">6</span><span class="tab-done" id="td-m2">✓</span></button>
+    <button class="tab-btn" id="tab-m3" onclick="showTab('m3')"><span class="tab-icon">🌐</span> Networking <span class="tab-count">5</span><span class="tab-done" id="td-m3">✓</span></button>
+    <button class="tab-btn" id="tab-m4" onclick="showTab('m4')"><span class="tab-icon">📷</span> CCTV <span class="tab-count">8</span><span class="tab-done" id="td-m4">✓</span></button>
+    <button class="tab-btn" id="tab-m5" onclick="showTab('m5')"><span class="tab-icon">🚪</span> Gates <span class="tab-count">6</span><span class="tab-done" id="td-m5">✓</span></button>
+    <button class="tab-btn" id="tab-m6" onclick="showTab('m6')"><span class="tab-icon">📋</span> Standards <span class="tab-count">3</span><span class="tab-done" id="td-m6">✓</span></button>
+  </div>
+</div>
+
+<main class="page-content">
+
+<!-- ── OVERVIEW ── -->
+<div class="panel active" id="panel-ov">
+  <div class="ov-intro">
+    <div class="ov-steps">
+      <div class="ov-steps-title">How this course works</div>
+      <div class="step-item">
+        <div class="step-num-circle">1</div>
+        <div class="step-text">
+          <strong>Watch the video</strong>
+          <span>Each module has 1–2 hand-picked YouTube videos. Watch these before reading the lessons.</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-circle">2</div>
+        <div class="step-text">
+          <strong>Read the lessons</strong>
+          <span>Go through each lesson in order. They build on each other within every module.</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num-circle">3</div>
+        <div class="step-text">
+          <strong>Pass the quiz</strong>
+          <span>Score 3 out of 4 minimum on every module quiz to earn your Intune certification.</span>
+        </div>
+      </div>
+    </div>
+    <div class="ov-cert-card">
+      <div>
+        <div class="ov-cert-badge">🏅</div>
+        <div class="ov-cert-title">Intune Certified Installation Partner</div>
+        <p class="ov-cert-desc">Awarded after passing all 6 module quizzes. Required before being assigned to any Intune client job. Valid for 2 years from issue date.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">All modules</div>
+  <div class="modules-grid">
+    <div class="module-tile" onclick="showTab('m1')">
+      <div class="mt-top"><div class="mt-icon" style="background:#E1F5EE">⚡</div><div class="mt-info"><div class="mt-title">Electrical & safety basics</div><div class="mt-sub">4 lessons · ~2.5 hrs · Foundation</div></div></div>
+      <div class="mt-prog-track"><div class="mt-prog-fill" id="ov-p1"></div></div>
+    </div>
+    <div class="module-tile" onclick="showTab('m2')">
+      <div class="mt-top"><div class="mt-icon" style="background:#E6F1FB">🔧</div><div class="mt-info"><div class="mt-title">Network cabling & termination</div><div class="mt-sub">6 lessons · ~3.5 hrs</div></div></div>
+      <div class="mt-prog-track"><div class="mt-prog-fill" id="ov-p2"></div></div>
+    </div>
+    <div class="module-tile" onclick="showTab('m3')">
+      <div class="mt-top"><div class="mt-icon" style="background:#FBEAF0">🌐</div><div class="mt-info"><div class="mt-title">Networking & switching</div><div class="mt-sub">5 lessons · ~3 hrs</div></div></div>
+      <div class="mt-prog-track"><div class="mt-prog-fill" id="ov-p3"></div></div>
+    </div>
+    <div class="module-tile" onclick="showTab('m4')">
+      <div class="mt-top"><div class="mt-icon" style="background:#EEEDFE">📷</div><div class="mt-info"><div class="mt-title">CCTV installation</div><div class="mt-sub">8 lessons · ~4 hrs</div></div></div>
+      <div class="mt-prog-track"><div class="mt-prog-fill" id="ov-p4"></div></div>
+    </div>
+    <div class="module-tile" onclick="showTab('m5')">
+      <div class="mt-top"><div class="mt-icon" style="background:#FAEEDA">🚪</div><div class="mt-info"><div class="mt-title">Smart gates & access control</div><div class="mt-sub">6 lessons · ~3 hrs</div></div></div>
+      <div class="mt-prog-track"><div class="mt-prog-fill" id="ov-p5"></div></div>
+    </div>
+    <div class="module-tile" onclick="showTab('m6')">
+      <div class="mt-top"><div class="mt-icon" style="background:#EAF3DE">📋</div><div class="mt-info"><div class="mt-title">Intune standards & job process</div><div class="mt-sub">3 lessons · ~1.5 hrs · Final</div></div></div>
+      <div class="mt-prog-track"><div class="mt-prog-fill" id="ov-p6"></div></div>
+    </div>
+  </div>
+  <button class="start-course-btn" onclick="showTab('m1')">Start with Module 1 — Electrical basics →</button>
+</div>
+
+<!-- ── MODULE 1 ── -->
+<div class="panel" id="panel-m1">
+  <div class="mod-header-card">
+    <div class="mhc-icon" style="background:#E1F5EE">⚡</div>
+    <div class="mhc-info">
+      <div class="mhc-title">Module 1 — Electrical & safety basics</div>
+      <p class="mhc-desc">The foundation every installer needs before touching any equipment. Covers DC/AC theory, reading circuit diagrams, power supplies, and Intune's on-site safety rules. Complete this module first — it underpins everything else.</p>
+      <div class="mhc-pills">
+        <span class="pill">4 lessons</span>
+        <span class="pill">~2.5 hrs</span>
+        <span class="pill" style="background:#E1F5EE;border-color:#5DCAA5;color:#085041">Foundation — complete first</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Video resources</div>
+  <a class="video-card" href="https://www.youtube.com/watch?v=kcL2_D33k3o" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info">
+      <div class="vc-title">Electrical current explained — AC DC, fuses, circuit breakers, multimeter</div>
+      <div class="vc-meta">Engineering Mindset · YouTube · Voltage, current, fuses, multimeter basics</div>
+    </div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=2jqJZxxX6gQ" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info">
+      <div class="vc-title">AC and DC electricity basics</div>
+      <div class="vc-meta">YouTube · Clear beginner-level theory · 12 min</div>
+    </div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+
+  <div class="section-label">Lessons</div>
+  <div class="lessons-card">
+    <div class="lesson-row"><div class="l-num" style="background:#E1F5EE;color:#085041">1</div><div class="l-body"><div class="l-title">DC & AC current fundamentals</div><div class="l-desc">Voltage, current, resistance, Ohm's law. Understanding 12V/24V DC systems used in cameras and gates vs. 230V AC mains.</div><div class="l-tags"><span class="l-tag">Theory</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#E1F5EE;color:#085041">2</div><div class="l-body"><div class="l-title">Electrical safety on-site</div><div class="l-desc">PPE requirements, working near live wires, isolating circuits, using a multimeter. Intune's mandatory safety checklist before any job.</div><div class="l-tags"><span class="l-tag safety">Safety</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#E1F5EE;color:#085041">3</div><div class="l-body"><div class="l-title">Basic electronic components</div><div class="l-desc">Resistors, capacitors, diodes, relays, fuses. How to read a simple circuit diagram and identify components used in CCTV power supplies and gate controllers.</div><div class="l-tags"><span class="l-tag">Theory</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#E1F5EE;color:#085041">4</div><div class="l-body"><div class="l-title">Power supply units & UPS</div><div class="l-desc">Switched mode vs. linear power supplies. UPS for cameras and gates — sizing, installation, and battery maintenance.</div><div class="l-tags"><span class="l-tag">Practical</span></div></div></div>
+  </div>
+
+  <div class="section-label">Module quiz</div>
+  <div class="quiz-wrapper" id="qw-m1">
+    <div class="quiz-top">
+      <div class="qt-left"><span class="qt-icon">📝</span><span class="qt-title">Electrical & safety quiz</span></div>
+      <span class="pass-req">Pass: 3 / 4</span>
+    </div>
+    <div class="quiz-body">
+      <div class="q-block">
+        <div class="q-label">Question 1 of 4</div>
+        <div class="q-text">What does "DC" stand for, and what type of power do most CCTV cameras use?</div>
+        <div class="opts">
+          <button class="opt" onclick="pick('m1',0,'a')">A — Dynamic Current; cameras use AC power</button>
+          <button class="opt" onclick="pick('m1',0,'b')">B — Direct Current; most cameras run on 12V or 24V DC</button>
+          <button class="opt" onclick="pick('m1',0,'c')">C — Digital Current; cameras use 240V DC</button>
+          <button class="opt" onclick="pick('m1',0,'d')">D — Distributed Current; cameras use whatever is available</button>
+        </div>
+        <div class="q-fb" id="qf-m1-0"></div>
+      </div>
+      <div class="q-block">
+        <div class="q-label">Question 2 of 4</div>
+        <div class="q-text">Before working on any live circuit on-site, what must you do first?</div>
+        <div class="opts">
+          <button class="opt" onclick="pick('m1',1,'a')">A — Put on safety goggles only</button>
+          <button class="opt" onclick="pick('m1',1,'b')">B — Isolate the circuit and verify it is dead with a multimeter</button>
+          <button class="opt" onclick="pick('m1',1,'c')">C — Work quickly before anyone notices</button>
+          <button class="opt" onclick="pick('m1',1,'d')">D — Ask the client to turn off the lights</button>
+        </div>
+        <div class="q-fb" id="qf-m1-1"></div>
+      </div>
+      <div class="q-block">
+        <div class="q-label">Question 3 of 4</div>
+        <div class="q-text">A relay in a gate controller is best described as:</div>
+        <div class="opts">
+          <button class="opt" onclick="pick('m1',2,'a')">A — A fuse that blows when overloaded</button>
+          <button class="opt" onclick="pick('m1',2,'b')">B — An electrically operated switch that lets a low-power signal control a high-power circuit</button>
+          <button class="opt" onclick="pick('m1',2,'c')">C — A capacitor that stores charge for the motor</button>
+          <button class="opt" onclick="pick('m1',2,'d')">D — A type of network connector</button>
+        </div>
+        <div class="q-fb" id="qf-m1-2"></div>
+      </div>
+      <div class="q-block">
+        <div class="q-label">Question 4 of 4</div>
+        <div class="q-text">Why is a UPS important for a CCTV system?</div>
+        <div class="opts">
+          <button class="opt" onclick="pick('m1',3,'a')">A — It boosts the Wi-Fi signal for wireless cameras</button>
+          <button class="opt" onclick="pick('m1',3,'b')">B — It keeps cameras and NVR running during a power cut so recording never stops</button>
+          <button class="opt" onclick="pick('m1',3,'c')">C — It converts DC to AC for the monitors</button>
+          <button class="opt" onclick="pick('m1',3,'d')">D — It is only required for outdoor cameras</button>
+        </div>
+        <div class="q-fb" id="qf-m1-3"></div>
+      </div>
+    </div>
+    <div class="quiz-footer">
+      <button class="btn-submit" id="sub-m1" onclick="submitQ('m1',['b','b','b','b'])">Submit answers</button>
+      <div class="score-display" id="sc-m1"></div>
+      <button class="btn-reset" id="rst-m1" onclick="resetQ('m1',4)">Try again</button>
+    </div>
+  </div>
+  <div class="mod-nav-row"><button class="btn-next" onclick="showTab('m2')">Next: Cabling →</button></div>
+</div>
+
+<!-- ── MODULE 2 ── -->
+<div class="panel" id="panel-m2">
+  <div class="mod-header-card">
+    <div class="mhc-icon" style="background:#E6F1FB">🔧</div>
+    <div class="mhc-info">
+      <div class="mhc-title">Module 2 — Network cabling & termination</div>
+      <p class="mhc-desc">The hands-on backbone of the course. Covers cable types, stripping and crimping correctly, PoE for powering cameras over a single cable, and how to test and certify every run before handover.</p>
+      <div class="mhc-pills"><span class="pill">6 lessons</span><span class="pill">~3.5 hrs</span><span class="pill" style="background:#E6F1FB;border-color:#85B7EB;color:#0C447C">Core skill</span></div>
+    </div>
+  </div>
+  <div class="section-label">Video resources</div>
+  <a class="video-card" href="https://www.youtube.com/watch?v=N1dcCzfgdhs" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info"><div class="vc-title">How to crimp Cat6 RJ45 — best method tutorial</div><div class="vc-meta">LVN · YouTube · Step-by-step crimping using T568B standard</div></div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=dVq9jHwmCrY" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info"><div class="vc-title">Power over Ethernet (PoE and PoE+) — in 5 minutes</div><div class="vc-meta">YouTube · IEEE 802.3af vs 802.3at explained simply</div></div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <div class="section-label">Lessons</div>
+  <div class="lessons-card">
+    <div class="lesson-row"><div class="l-num" style="background:#E6F1FB;color:#0C447C">1</div><div class="l-body"><div class="l-title">Cable types overview</div><div class="l-desc">Cat 5e, Cat 6, Cat 6A, coaxial (RG59/RG6), fibre optic — differences, use cases, max distances.</div><div class="l-tags"><span class="l-tag">Theory</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#E6F1FB;color:#0C447C">2</div><div class="l-body"><div class="l-title">Cable tools & stripping</div><div class="l-desc">Stripper, crimping tool, punch-down tool, cable tester. Avoiding nicks and crosstalk failures.</div><div class="l-tags"><span class="l-tag">Hands-on</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#E6F1FB;color:#0C447C">3</div><div class="l-body"><div class="l-title">RJ45 termination — T568B standard</div><div class="l-desc">Correct wire pair order, crimping plugs cleanly, keystone jack punch-down. Intune uses T568B on all jobs.</div><div class="l-tags"><span class="l-tag">Hands-on</span><span class="l-tag intune">Intune standard</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#E6F1FB;color:#0C447C">4</div><div class="l-body"><div class="l-title">Cable routing & management</div><div class="l-desc">Conduits, trunking, bend radius rules, separation from power cables, labelling both ends.</div><div class="l-tags"><span class="l-tag">Practical</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#E6F1FB;color:#0C447C">5</div><div class="l-body"><div class="l-title">PoE — power over Ethernet</div><div class="l-desc">IEEE 802.3af vs 802.3at (PoE+). PoE budget calculation on a switch. Injectors and splitters explained.</div><div class="l-tags"><span class="l-tag">Theory</span><span class="l-tag">Practical</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#E6F1FB;color:#0C447C">6</div><div class="l-body"><div class="l-title">Cable testing & certification</div><div class="l-desc">Using a cable tester, reading results, what to do when a run fails, documenting for client reports.</div><div class="l-tags"><span class="l-tag">Hands-on</span></div></div></div>
+  </div>
+  <div class="section-label">Module quiz</div>
+  <div class="quiz-wrapper">
+    <div class="quiz-top"><div class="qt-left"><span class="qt-icon">📝</span><span class="qt-title">Network cabling quiz</span></div><span class="pass-req">Pass: 3 / 4</span></div>
+    <div class="quiz-body">
+      <div class="q-block"><div class="q-label">Question 1 of 4</div><div class="q-text">Intune uses which wiring standard for all RJ45 terminations on every job?</div><div class="opts"><button class="opt" onclick="pick('m2',0,'a')">A — T568A, the international default</button><button class="opt" onclick="pick('m2',0,'b')">B — T568B, Intune's mandatory standard</button><button class="opt" onclick="pick('m2',0,'c')">C — Either; they are electrically identical</button><button class="opt" onclick="pick('m2',0,'d')">D — RJ11 crossover standard</button></div><div class="q-fb" id="qf-m2-0"></div></div>
+      <div class="q-block"><div class="q-label">Question 2 of 4</div><div class="q-text">What is the maximum recommended run length for Cat 6 Ethernet cable?</div><div class="opts"><button class="opt" onclick="pick('m2',1,'a')">A — 50 metres</button><button class="opt" onclick="pick('m2',1,'b')">B — 100 metres</button><button class="opt" onclick="pick('m2',1,'c')">C — 200 metres</button><button class="opt" onclick="pick('m2',1,'d')">D — 500 metres</button></div><div class="q-fb" id="qf-m2-1"></div></div>
+      <div class="q-block"><div class="q-label">Question 3 of 4</div><div class="q-text">PoE+ (IEEE 802.3at) delivers how much power to a connected device?</div><div class="opts"><button class="opt" onclick="pick('m2',2,'a')">A — Up to 7.5 W</button><button class="opt" onclick="pick('m2',2,'b')">B — Up to 15.4 W</button><button class="opt" onclick="pick('m2',2,'c')">C — Up to 30 W</button><button class="opt" onclick="pick('m2',2,'d')">D — Up to 90 W</button></div><div class="q-fb" id="qf-m2-2"></div></div>
+      <div class="q-block"><div class="q-label">Question 4 of 4</div><div class="q-text">When routing network cable near mains power cables, you should:</div><div class="opts"><button class="opt" onclick="pick('m2',3,'a')">A — Bundle them together for tidiness</button><button class="opt" onclick="pick('m2',3,'b')">B — Keep them separated in different conduits to prevent electromagnetic interference</button><button class="opt" onclick="pick('m2',3,'c')">C — Use Cat 5e near power cables</button><button class="opt" onclick="pick('m2',3,'d')">D — There is no problem running them together</button></div><div class="q-fb" id="qf-m2-3"></div></div>
+    </div>
+    <div class="quiz-footer"><button class="btn-submit" id="sub-m2" onclick="submitQ('m2',['b','b','c','b'])">Submit answers</button><div class="score-display" id="sc-m2"></div><button class="btn-reset" id="rst-m2" onclick="resetQ('m2',4)">Try again</button></div>
+  </div>
+  <div class="mod-nav-row"><button class="btn-next" onclick="showTab('m3')">Next: Networking →</button></div>
+</div>
+
+<!-- ── MODULE 3 ── -->
+<div class="panel" id="panel-m3">
+  <div class="mod-header-card">
+    <div class="mhc-icon" style="background:#FBEAF0">🌐</div>
+    <div class="mhc-info">
+      <div class="mhc-title">Module 3 — Networking & switching</div>
+      <p class="mhc-desc">Gives contractors just enough IT knowledge to set up camera networks professionally — IP addressing, managed switches, VLANs, and network security best practices that protect the client's system.</p>
+      <div class="mhc-pills"><span class="pill">5 lessons</span><span class="pill">~3 hrs</span><span class="pill" style="background:#FBEAF0;border-color:#ED93B1;color:#72243E">Core skill</span></div>
+    </div>
+  </div>
+  <div class="section-label">Video resources</div>
+  <a class="video-card" href="https://www.youtube.com/watch?v=x-QNtpD4_UU" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info"><div class="vc-title">VLANs: complete beginner guide</div><div class="vc-meta">Yarborough Technologies · YouTube · Switches, IP addressing, VLAN segmentation</div></div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=naGwpbDXWTI" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info"><div class="vc-title">PoE, PoE+, UPoE explained — IEEE 802.3af, 802.3at tutorial</div><div class="vc-meta">YouTube · 2025 · Standards and managed switch port management</div></div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <div class="section-label">Lessons</div>
+  <div class="lessons-card">
+    <div class="lesson-row"><div class="l-num" style="background:#FBEAF0;color:#72243E">1</div><div class="l-body"><div class="l-title">IP addressing & subnets</div><div class="l-desc">IPv4, subnet masks (/24), default gateways, assigning static IPs to cameras. Why 192.168.x.x is used on-site.</div><div class="l-tags"><span class="l-tag">Theory</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#FBEAF0;color:#72243E">2</div><div class="l-body"><div class="l-title">Switches & port management</div><div class="l-desc">Managed vs. unmanaged switches. Logging in, assigning VLANs for camera traffic, enabling/disabling PoE per port.</div><div class="l-tags"><span class="l-tag">Practical</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#FBEAF0;color:#72243E">3</div><div class="l-body"><div class="l-title">Routers, DHCP & DNS basics</div><div class="l-desc">What routers do vs. switches. DHCP reservation by MAC address. DNS for remote access via domain names.</div><div class="l-tags"><span class="l-tag">Theory</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#FBEAF0;color:#72243E">4</div><div class="l-body"><div class="l-title">Network security for installers</div><div class="l-desc">Changing default passwords on cameras and NVRs. Disabling UPnP. Firewall port forwarding. Camera VLAN isolation from office network.</div><div class="l-tags"><span class="l-tag security">Security</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#FBEAF0;color:#72243E">5</div><div class="l-body"><div class="l-title">Wi-Fi & wireless bridges</div><div class="l-desc">2.4GHz vs. 5GHz. Wireless camera pros/cons, channel interference, point-to-point bridges for remote buildings.</div><div class="l-tags"><span class="l-tag">Theory</span><span class="l-tag">Practical</span></div></div></div>
+  </div>
+  <div class="section-label">Module quiz</div>
+  <div class="quiz-wrapper">
+    <div class="quiz-top"><div class="qt-left"><span class="qt-icon">📝</span><span class="qt-title">Networking & switching quiz</span></div><span class="pass-req">Pass: 3 / 4</span></div>
+    <div class="quiz-body">
+      <div class="q-block"><div class="q-label">Question 1 of 4</div><div class="q-text">Why should IP cameras be placed on a separate VLAN from the client's office computers?</div><div class="opts"><button class="opt" onclick="pick('m3',0,'a')">A — Cameras need a higher IP address range</button><button class="opt" onclick="pick('m3',0,'b')">B — To isolate camera traffic so a hacked camera cannot access office data</button><button class="opt" onclick="pick('m3',0,'c')">C — VLANs make cameras record faster</button><button class="opt" onclick="pick('m3',0,'d')">D — It is not necessary</button></div><div class="q-fb" id="qf-m3-0"></div></div>
+      <div class="q-block"><div class="q-label">Question 2 of 4</div><div class="q-text">A client's NVR needs to always have the same IP address. The best approach is:</div><div class="opts"><button class="opt" onclick="pick('m3',1,'a')">A — Assign a random static IP and hope for no conflicts</button><button class="opt" onclick="pick('m3',1,'b')">B — Create a DHCP reservation in the router tied to the NVR's MAC address</button><button class="opt" onclick="pick('m3',1,'c')">C — Tell the client to never restart the router</button><button class="opt" onclick="pick('m3',1,'d')">D — Use a wireless bridge instead</button></div><div class="q-fb" id="qf-m3-1"></div></div>
+      <div class="q-block"><div class="q-label">Question 3 of 4</div><div class="q-text">What is the most important security step after installing an IP camera or NVR?</div><div class="opts"><button class="opt" onclick="pick('m3',2,'a')">A — Update the firmware only</button><button class="opt" onclick="pick('m3',2,'b')">B — Change the default admin username and password immediately</button><button class="opt" onclick="pick('m3',2,'c')">C — Enable UPnP for easier remote access</button><button class="opt" onclick="pick('m3',2,'d')">D — Connect it to public Wi-Fi for easy monitoring</button></div><div class="q-fb" id="qf-m3-2"></div></div>
+      <div class="q-block"><div class="q-label">Question 4 of 4</div><div class="q-text">What does a managed switch allow that an unmanaged switch cannot?</div><div class="opts"><button class="opt" onclick="pick('m3',3,'a')">A — Connect more than 8 devices</button><button class="opt" onclick="pick('m3',3,'b')">B — Configure VLANs, enable/disable PoE per port, and monitor traffic</button><button class="opt" onclick="pick('m3',3,'c')">C — Provide faster Wi-Fi</button><button class="opt" onclick="pick('m3',3,'d')">D — Replace the need for a router</button></div><div class="q-fb" id="qf-m3-3"></div></div>
+    </div>
+    <div class="quiz-footer"><button class="btn-submit" id="sub-m3" onclick="submitQ('m3',['b','b','b','b'])">Submit answers</button><div class="score-display" id="sc-m3"></div><button class="btn-reset" id="rst-m3" onclick="resetQ('m3',4)">Try again</button></div>
+  </div>
+  <div class="mod-nav-row"><button class="btn-next" onclick="showTab('m4')">Next: CCTV →</button></div>
+</div>
+
+<!-- ── MODULE 4 ── -->
+<div class="panel" id="panel-m4">
+  <div class="mod-header-card">
+    <div class="mhc-icon" style="background:#EEEDFE">📷</div>
+    <div class="mhc-info">
+      <div class="mhc-title">Module 4 — CCTV installation</div>
+      <p class="mhc-desc">The longest and most detailed module. Covers camera selection, site surveys, mounting, DVR/NVR setup, IP configuration, remote access, Intune's cable clipping standard, and fault finding.</p>
+      <div class="mhc-pills"><span class="pill">8 lessons</span><span class="pill">~4 hrs</span><span class="pill" style="background:#EEEDFE;border-color:#AFA9EC;color:#3C3489">Core skill</span></div>
+    </div>
+  </div>
+  <div class="section-label">Video resources</div>
+  <a class="video-card" href="https://www.youtube.com/watch?v=sv8suQ4hg7o" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info"><div class="vc-title">CCTV camera installation — IP camera & NVR step by step with wiring diagram</div><div class="vc-meta">YouTube · Sept 2024 · Complete IP camera + NVR setup walkthrough</div></div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=4iyt7Qat99Q" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info"><div class="vc-title">CCTV installation step by step — full guide for beginners</div><div class="vc-meta">YouTube · 2025 · Site survey to handover, mounting, cabling, configuration</div></div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <div class="section-label">Lessons</div>
+  <div class="lessons-card">
+    <div class="lesson-row"><div class="l-num" style="background:#EEEDFE;color:#3C3489">1</div><div class="l-body"><div class="l-title">Camera types & specifications</div><div class="l-desc">Bullet, dome, PTZ, fisheye. IP vs. AHD/TVI/CVI. Key specs: MP, FPS, WDR, IR range, IP67/66 weather ratings.</div><div class="l-tags"><span class="l-tag">Theory</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#EEEDFE;color:#3C3489">2</div><div class="l-body"><div class="l-title">Site survey & camera placement</div><div class="l-desc">Identifying blind spots, entry/exit coverage rules, lighting considerations, and legal requirements for Sri Lanka.</div><div class="l-tags"><span class="l-tag">Practical</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#EEEDFE;color:#3C3489">3</div><div class="l-body"><div class="l-title">Mounting cameras — indoor & outdoor</div><div class="l-desc">Drilling brick, concrete, gypsum board. Anchor types. Weatherproofing cable entries with silicone sealant.</div><div class="l-tags"><span class="l-tag">Hands-on</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#EEEDFE;color:#3C3489">4</div><div class="l-body"><div class="l-title">DVR & NVR setup</div><div class="l-desc">DVR vs. NVR differences. HDD sizing with the storage calculator. Adding cameras, naming channels, recording schedules.</div><div class="l-tags"><span class="l-tag">Practical</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#EEEDFE;color:#3C3489">5</div><div class="l-body"><div class="l-title">IP camera configuration</div><div class="l-desc">SADP tool, IP assignment, resolution, motion detection zones, ONVIF/NVR pairing.</div><div class="l-tags"><span class="l-tag">Practical</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#EEEDFE;color:#3C3489">6</div><div class="l-body"><div class="l-title">Remote access setup</div><div class="l-desc">Hik-Connect/DMSS mobile app setup. P2P cloud vs. port forwarding. Testing remote viewing before handover.</div><div class="l-tags"><span class="l-tag">Practical</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#EEEDFE;color:#3C3489">7</div><div class="l-body"><div class="l-title">Cable clipping & trunking — neat finish</div><div class="l-desc">Regular clip intervals, conduit, mini-trunking, hiding cables in walls/ceilings. Intune's standard: zero exposed hanging cables at handover.</div><div class="l-tags"><span class="l-tag intune">Intune standard</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#EEEDFE;color:#3C3489">8</div><div class="l-body"><div class="l-title">Fault finding & troubleshooting</div><div class="l-desc">No image, flickering, poor night vision — systematic diagnosis checklist and on-site fixes.</div><div class="l-tags"><span class="l-tag">Practical</span></div></div></div>
+  </div>
+  <div class="section-label">Module quiz</div>
+  <div class="quiz-wrapper">
+    <div class="quiz-top"><div class="qt-left"><span class="qt-icon">📝</span><span class="qt-title">CCTV installation quiz</span></div><span class="pass-req">Pass: 3 / 4</span></div>
+    <div class="quiz-body">
+      <div class="q-block"><div class="q-label">Question 1 of 4</div><div class="q-text">What is the key difference between a DVR and an NVR?</div><div class="opts"><button class="opt" onclick="pick('m4',0,'a')">A — A DVR records video; an NVR only streams live</button><button class="opt" onclick="pick('m4',0,'b')">B — A DVR works with analog cameras; an NVR works with IP cameras over a network</button><button class="opt" onclick="pick('m4',0,'c')">C — NVR is older technology</button><button class="opt" onclick="pick('m4',0,'d')">D — DVR requires fibre optic; NVR uses coaxial</button></div><div class="q-fb" id="qf-m4-0"></div></div>
+      <div class="q-block"><div class="q-label">Question 2 of 4</div><div class="q-text">An IP67 rating on a CCTV camera means:</div><div class="opts"><button class="opt" onclick="pick('m4',1,'a')">A — The camera has 67 megapixel resolution</button><button class="opt" onclick="pick('m4',1,'b')">B — It is dust-tight and can withstand powerful water jets — suitable for outdoor use</button><button class="opt" onclick="pick('m4',1,'c')">C — It operates at up to 67°C only</button><button class="opt" onclick="pick('m4',1,'d')">D — It is compatible only with IPv6 networks</button></div><div class="q-fb" id="qf-m4-1"></div></div>
+      <div class="q-block"><div class="q-label">Question 3 of 4</div><div class="q-text">After mounting an outdoor camera, cable entry holes into the wall must be:</div><div class="opts"><button class="opt" onclick="pick('m4',2,'a')">A — Left open for ventilation</button><button class="opt" onclick="pick('m4',2,'b')">B — Sealed with silicone sealant to prevent water ingress and insect entry</button><button class="opt" onclick="pick('m4',2,'c')">C — Covered with electrical tape only</button><button class="opt" onclick="pick('m4',2,'d')">D — Left for the client to seal</button></div><div class="q-fb" id="qf-m4-2"></div></div>
+      <div class="q-block"><div class="q-label">Question 4 of 4</div><div class="q-text">Per Intune's quality standard, the installation at handover must have:</div><div class="opts"><button class="opt" onclick="pick('m4',3,'a')">A — At least one camera per room regardless of client requirement</button><button class="opt" onclick="pick('m4',3,'b')">B — All cables neatly clipped and labelled, with no exposed raw cable hanging anywhere</button><button class="opt" onclick="pick('m4',3,'c')">C — The NVR placed in the most visible location</button><button class="opt" onclick="pick('m4',3,'d')">D — Remote access disabled for security</button></div><div class="q-fb" id="qf-m4-3"></div></div>
+    </div>
+    <div class="quiz-footer"><button class="btn-submit" id="sub-m4" onclick="submitQ('m4',['b','b','b','b'])">Submit answers</button><div class="score-display" id="sc-m4"></div><button class="btn-reset" id="rst-m4" onclick="resetQ('m4',4)">Try again</button></div>
+  </div>
+  <div class="mod-nav-row"><button class="btn-next" onclick="showTab('m5')">Next: Gates →</button></div>
+</div>
+
+<!-- ── MODULE 5 ── -->
+<div class="panel" id="panel-m5">
+  <div class="mod-header-card">
+    <div class="mhc-icon" style="background:#FAEEDA">🚪</div>
+    <div class="mhc-info">
+      <div class="mhc-title">Module 5 — Smart gates & access control</div>
+      <p class="mhc-desc">Covers gate motor selection, wiring controller boards, access methods such as RFID and keypads, safety sensors, and how to integrate gates with CCTV systems and video intercoms.</p>
+      <div class="mhc-pills"><span class="pill">6 lessons</span><span class="pill">~3 hrs</span><span class="pill" style="background:#FAEEDA;border-color:#FAC775;color:#633806">Core skill</span></div>
+    </div>
+  </div>
+  <div class="section-label">Video resources</div>
+  <a class="video-card" href="https://www.youtube.com/watch?v=IsYIxbOhfiQ" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info"><div class="vc-title">NICE sliding gate motor install — pro tips & step-by-step guide</div><div class="vc-meta">YouTube · March 2025 · Motor fitting, controller board wiring, commissioning</div></div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=6-x94zi7J_Q" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info"><div class="vc-title">Installing an automatic gate opener — full walkthrough</div><div class="vc-meta">The Internet Electrician · YouTube · Gate wiring and safety sensors explained</div></div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <div class="section-label">Lessons</div>
+  <div class="lessons-card">
+    <div class="lesson-row"><div class="l-num" style="background:#FAEEDA;color:#633806">1</div><div class="l-body"><div class="l-title">Gate types & motor systems</div><div class="l-desc">Sliding vs. swing gates, underground vs. surface motors. Selecting correct motor torque for gate weight and width.</div><div class="l-tags"><span class="l-tag">Theory</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#FAEEDA;color:#633806">2</div><div class="l-body"><div class="l-title">Gate controller boards & wiring</div><div class="l-desc">Open/close/stop terminals, limit switch connections, safety loop. Connecting push buttons and remote receivers to the board.</div><div class="l-tags"><span class="l-tag">Hands-on</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#FAEEDA;color:#633806">3</div><div class="l-body"><div class="l-title">Access control methods</div><div class="l-desc">RFID cards, keypads, biometrics (fingerprint). Wiegand protocol basics. Fail-safe vs. fail-secure magnetic locks.</div><div class="l-tags"><span class="l-tag">Theory</span><span class="l-tag">Practical</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#FAEEDA;color:#633806">4</div><div class="l-body"><div class="l-title">Safety sensors & obstacle detection</div><div class="l-desc">Safety edges, photocells, ground loops. Legal requirements and sensitivity adjustment before handover.</div><div class="l-tags"><span class="l-tag safety">Safety</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#FAEEDA;color:#633806">5</div><div class="l-body"><div class="l-title">Integration with CCTV & intercoms</div><div class="l-desc">NVR relay outputs, video intercom wiring to gate controller, end-to-end flow testing.</div><div class="l-tags"><span class="l-tag">Practical</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#FAEEDA;color:#633806">6</div><div class="l-body"><div class="l-title">Commissioning & client handover</div><div class="l-desc">Auto-close timers, remote programming, limit switch tuning, leaving the client with a user guide.</div><div class="l-tags"><span class="l-tag intune">Intune standard</span></div></div></div>
+  </div>
+  <div class="section-label">Module quiz</div>
+  <div class="quiz-wrapper">
+    <div class="quiz-top"><div class="qt-left"><span class="qt-icon">📝</span><span class="qt-title">Smart gates quiz</span></div><span class="pass-req">Pass: 3 / 4</span></div>
+    <div class="quiz-body">
+      <div class="q-block"><div class="q-label">Question 1 of 4</div><div class="q-text">What is the purpose of photocell sensors on an automatic gate?</div><div class="opts"><button class="opt" onclick="pick('m5',0,'a')">A — To detect darkness and switch on gate lights</button><button class="opt" onclick="pick('m5',0,'b')">B — To detect an obstacle and stop or reverse the gate to prevent crushing</button><button class="opt" onclick="pick('m5',0,'c')">C — To measure the gate's speed of travel</button><button class="opt" onclick="pick('m5',0,'d')">D — To connect the intercom system</button></div><div class="q-fb" id="qf-m5-0"></div></div>
+      <div class="q-block"><div class="q-label">Question 2 of 4</div><div class="q-text">On a gate controller board, the limit switch connection:</div><div class="opts"><button class="opt" onclick="pick('m5',1,'a')">A — Limits the number of remotes that can be programmed</button><button class="opt" onclick="pick('m5',1,'b')">B — Signals the controller where the fully open and fully closed gate positions are</button><button class="opt" onclick="pick('m5',1,'c')">C — Limits the gate's travel speed</button><button class="opt" onclick="pick('m5',1,'d')">D — Connects the RFID reader</button></div><div class="q-fb" id="qf-m5-1"></div></div>
+      <div class="q-block"><div class="q-label">Question 3 of 4</div><div class="q-text">A "fail-safe" magnetic lock means:</div><div class="opts"><button class="opt" onclick="pick('m5',2,'a')">A — The lock stays locked when power is cut — maximum security</button><button class="opt" onclick="pick('m5',2,'b')">B — The lock releases (unlocks) when power is cut — allowing safe exit in emergencies</button><button class="opt" onclick="pick('m5',2,'c')">C — The lock sends an alert when tampered with</button><button class="opt" onclick="pick('m5',2,'d')">D — It works only with biometric readers</button></div><div class="q-fb" id="qf-m5-2"></div></div>
+      <div class="q-block"><div class="q-label">Question 4 of 4</div><div class="q-text">Before connecting photocells and keypads to a new gate install, you should:</div><div class="opts"><button class="opt" onclick="pick('m5',3,'a')">A — Connect all accessories at once for efficiency</button><button class="opt" onclick="pick('m5',3,'b')">B — Get the gate motor running and tested on its own first, then add accessories one at a time</button><button class="opt" onclick="pick('m5',3,'c')">C — Install the intercom before the motor</button><button class="opt" onclick="pick('m5',3,'d')">D — Ask the client to test everything themselves</button></div><div class="q-fb" id="qf-m5-3"></div></div>
+    </div>
+    <div class="quiz-footer"><button class="btn-submit" id="sub-m5" onclick="submitQ('m5',['b','b','b','b'])">Submit answers</button><div class="score-display" id="sc-m5"></div><button class="btn-reset" id="rst-m5" onclick="resetQ('m5',4)">Try again</button></div>
+  </div>
+  <div class="mod-nav-row"><button class="btn-next" onclick="showTab('m6')">Next: Intune standards →</button></div>
+</div>
+
+<!-- ── MODULE 6 ── -->
+<div class="panel" id="panel-m6">
+  <div class="mod-header-card">
+    <div class="mhc-icon" style="background:#EAF3DE">📋</div>
+    <div class="mhc-info">
+      <div class="mhc-title">Module 6 — Intune standards & job process</div>
+      <p class="mhc-desc">Ensures every contractor represents Intune correctly on-site. Covers quality standards, the full job workflow from survey to sign-off, and how to handle client communication and escalations.</p>
+      <div class="mhc-pills"><span class="pill">3 lessons</span><span class="pill">~1.5 hrs</span><span class="pill" style="background:#EAF3DE;border-color:#97C459;color:#27500A">Final module</span></div>
+    </div>
+  </div>
+  <div class="section-label">Video resource</div>
+  <a class="video-card" href="https://www.youtube.com/watch?v=MZy6XKGwq_c" target="_blank">
+    <div class="yt-pill"><div class="yt-arrow"></div></div>
+    <div class="vc-info"><div class="vc-title">Practical AHD CCTV camera installation — fully explained guide</div><div class="vc-meta">YouTube · Feb 2025 · Full install process including power, cabling, and handover</div></div>
+    <div class="watch-tag">Watch ↗</div>
+  </a>
+  <div class="section-label">Lessons</div>
+  <div class="lessons-card">
+    <div class="lesson-row"><div class="l-num" style="background:#EAF3DE;color:#27500A">1</div><div class="l-body"><div class="l-title">Intune installation quality standards</div><div class="l-desc">Non-negotiable rules: cable clipping, labelling, waterproofing, signage, and site clean-up after every job. These are the standards clients pay for.</div><div class="l-tags"><span class="l-tag intune">Intune standard</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#EAF3DE;color:#27500A">2</div><div class="l-body"><div class="l-title">Job workflow — survey to sign-off</div><div class="l-desc">Step-by-step: site survey → materials request → installation → testing → client walkthrough → photo documentation → completion report to Intune HQ.</div><div class="l-tags"><span class="l-tag">Process</span></div></div></div>
+    <div class="lesson-row"><div class="l-num" style="background:#EAF3DE;color:#27500A">3</div><div class="l-body"><div class="l-title">Client communication & escalation</div><div class="l-desc">What you can and cannot commit to on-site. Handling complaints and scope changes professionally. Escalating to Intune's project team.</div><div class="l-tags"><span class="l-tag">Process</span></div></div></div>
+  </div>
+  <div class="section-label">Final certification quiz</div>
+  <div class="quiz-wrapper final">
+    <div class="quiz-top"><div class="qt-left"><span class="qt-icon">🏅</span><span class="qt-title">Final certification assessment</span></div><span class="pass-req">Pass: 3 / 4</span></div>
+    <div class="quiz-body">
+      <div class="q-block"><div class="q-label">Question 1 of 4</div><div class="q-text">What must be done at every Intune job site before leaving?</div><div class="opts"><button class="opt" onclick="pick('m6',0,'a')">A — Leave all packaging for the client to dispose of</button><button class="opt" onclick="pick('m6',0,'b')">B — Clean up, clip and label all cables, seal all cable entries, and submit completion report with photos to Intune HQ</button><button class="opt" onclick="pick('m6',0,'c')">C — Submit the report only — photos are optional</button><button class="opt" onclick="pick('m6',0,'d')">D — Ask the client to sign without demonstrating the system</button></div><div class="q-fb" id="qf-m6-0"></div></div>
+      <div class="q-block"><div class="q-label">Question 2 of 4</div><div class="q-text">A client asks you to add 4 extra cameras beyond the agreed scope while on-site. You should:</div><div class="opts"><button class="opt" onclick="pick('m6',1,'a')">A — Install them for free to keep the client happy</button><button class="opt" onclick="pick('m6',1,'b')">B — Explain that scope changes must be approved by Intune HQ first, then escalate before proceeding</button><button class="opt" onclick="pick('m6',1,'c')">C — Refuse the client entirely</button><button class="opt" onclick="pick('m6',1,'d')">D — Install them and charge the client directly without telling Intune</button></div><div class="q-fb" id="qf-m6-1"></div></div>
+      <div class="q-block"><div class="q-label">Question 3 of 4</div><div class="q-text">At what stage do you photograph the completed installation?</div><div class="opts"><button class="opt" onclick="pick('m6',2,'a')">A — At the site survey, before any work begins</button><button class="opt" onclick="pick('m6',2,'b')">B — After full installation and testing, as part of the completion documentation submitted to Intune HQ</button><button class="opt" onclick="pick('m6',2,'c')">C — Only if the client requests photos</button><button class="opt" onclick="pick('m6',2,'d')">D — Photos are not required by Intune</button></div><div class="q-fb" id="qf-m6-2"></div></div>
+      <div class="q-block"><div class="q-label">Question 4 of 4</div><div class="q-text">Intune's cable clipping standard requires:</div><div class="opts"><button class="opt" onclick="pick('m6',3,'a')">A — Cables only need to be clipped near the camera</button><button class="opt" onclick="pick('m6',3,'b')">B — All cables clipped at regular intervals along the entire run, with zero exposed hanging cable at handover</button><button class="opt" onclick="pick('m6',3,'c')">C — Cable clipping is optional for indoor installations</button><button class="opt" onclick="pick('m6',3,'d')">D — The client decides whether to clip cables</button></div><div class="q-fb" id="qf-m6-3"></div></div>
+    </div>
+    <div class="quiz-footer"><button class="btn-submit" id="sub-m6" onclick="submitQ('m6',['b','b','b','b'])">Submit answers</button><div class="score-display" id="sc-m6"></div><button class="btn-reset" id="rst-m6" onclick="resetQ('m6',4)">Try again</button></div>
+  </div>
+  <div class="cert-unlock" id="cert-unlock">
+    <div class="cert-unlock-badge">🏅</div>
+    <div class="cert-unlock-title">You're Intune Certified!</div>
+    <p class="cert-unlock-desc">Congratulations — you have completed all 6 modules and passed every quiz. Present this to your Intune contact to receive your official certification and be added to the partner roster.</p>
+  </div>
+</div>
+
+</main>
+
+<script>
+const S = {
+  m1:{a:{},done:false}, m2:{a:{},done:false},
+  m3:{a:{},done:false}, m4:{a:{},done:false},
+  m5:{a:{},done:false}, m6:{a:{},done:false}
+};
+const TABS = ['ov','m1','m2','m3','m4','m5','m6'];
+
+function showTab(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  const idx = TABS.indexOf(id);
+  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function pick(mod, qi, opt) {
+  if (S[mod].done || S[mod].a[qi] !== undefined) return;
+  S[mod].a[qi] = opt;
+}
+
+function submitQ(mod, correct) {
+  if (S[mod].done) return;
+  S[mod].done = true;
+  let score = 0;
+  const n = correct.length;
+  const optMap = {a:0, b:1, c:2, d:3};
+  for (let i = 0; i < n; i++) {
+    const user = S[mod].a[i];
+    const right = correct[i];
+    const panel = document.getElementById('panel-' + mod);
+    const qblocks = panel.querySelectorAll('.q-block');
+    const opts = qblocks[i].querySelectorAll('.opt');
+    opts.forEach(o => o.disabled = true);
+    opts[optMap[right]].classList.add('correct');
+    if (user !== undefined && user !== right) opts[optMap[user]].classList.add('wrong');
+    const fb = document.getElementById('qf-' + mod + '-' + i);
+    if (user === right) {
+      score++;
+      fb.textContent = '✓ Correct!';
+      fb.className = 'q-fb ok';
+    } else if (!user) {
+      fb.textContent = 'Not answered — correct answer highlighted above.';
+      fb.className = 'q-fb no';
+    } else {
+      fb.textContent = '✗ Incorrect — correct answer highlighted above.';
+      fb.className = 'q-fb no';
+    }
+  }
+  const sc = document.getElementById('sc-' + mod);
+  const sub = document.getElementById('sub-' + mod);
+  const rst = document.getElementById('rst-' + mod);
+  sub.style.display = 'none';
+  rst.style.display = 'inline-block';
+  const passed = score >= 3;
+  sc.className = 'score-display ' + (passed ? 'pass' : 'fail');
+  sc.textContent = passed
+    ? ('✓ Passed — ' + score + '/' + n + ' correct')
+    : ('✗ ' + score + '/' + n + ' correct — need 3/4 to pass');
+  if (passed) {
+    const num = mod.replace('m','');
+    const op = document.getElementById('ov-p' + num);
+    if (op) op.style.width = '100%';
+    const td = document.getElementById('td-' + mod);
+    if (td) td.classList.add('show');
+    updateProgress();
+    if (mod === 'm6') {
+      setTimeout(() => {
+        document.getElementById('cert-unlock').style.display = 'block';
+      }, 400);
+    }
+  }
+}
+
+function resetQ(mod, n) {
+  S[mod] = {a:{}, done:false};
+  const panel = document.getElementById('panel-' + mod);
+  panel.querySelectorAll('.opt').forEach(o => {
+    o.className = 'opt'; o.disabled = false;
+  });
+  panel.querySelectorAll('.q-fb').forEach(f => f.className = 'q-fb');
+  document.getElementById('sc-' + mod).className = 'score-display';
+  document.getElementById('sub-' + mod).style.display = 'inline-block';
+  document.getElementById('rst-' + mod).style.display = 'none';
+}
+
+function updateProgress() {
+  let done = 0;
+  ['m1','m2','m3','m4','m5','m6'].forEach(m => { if(S[m].done) done++; });
+  const pct = Math.round((done/6)*100);
+  document.getElementById('hero-prog').style.width = pct + '%';
+  document.getElementById('hero-prog-label').textContent = done + ' of 6 modules completed';
+  document.getElementById('topbar-prog').style.width = pct + '%';
+  document.getElementById('topbar-prog-label').textContent = done + ' / 6';
+}
+</script>
+</body>
+</html>
